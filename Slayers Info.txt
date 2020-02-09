@@ -1,0 +1,52 @@
+Slayer V0.03 - Equipment Update
+- A dict representing slots on the combatant class
+- Created an Equipment class to generate equipment objects
+
+# Equipment object
+The equipment object requires a Name and Slot.
+The stats of the object is a dict that can be entered but defaults to strength, defence, speed.
+
+The stats can be generated using the generateStatsByLevel or generateStatsByRate method
+The generateStatsByLevel method will let you input a level and will calculate points appropriate to that level. The points will then be randomly distrubuted based the number of stats you have.
+
+The generateStatsByRate method will let you specify the amount of points and the rate (percentage) of negative points.
+
+Given 90 points and a 20% negative rate, you end up with.
+72 positive points
+18 negative points
+These points are distrubuted throughout the number of skills you have.
+
+This will mean all items will always have the same total number of points when added.
+Iron Helmet stats: [38.0, 10.0, 6.0]    = 54 points
+Iron Helmet stats: [30.0, 17.0, 7.0]    = 54 points
+Iron Helmet stats: [30.0, 1.0, 23.0]    = 54 points
+Iron Helmet stats: [11.0, 18.0, 25.0]   = 54 points
+
+To add more variety I could make the positive and negative be random.
+0-72 positive
+0-18 negative
+
+This way the stats would be more varied for items of the same level.
+
+You could end up with an item that has 
+maximum positive with minumum negative, 
+minimum positive with maximum negative,
+or anything in between.
+
+This would add a lot of variety when weighing options for upgrading, buying/selling items.
+
+# Generating Equipment
+It might be interesting to have different slot equipment have different skills instead of a default strength, speed and defence.
+
+For example:
+An mainhand weapons like swords, axes, hammers could have strength and speed stats
+A body armour could have defence, speed and health stats
+A offhand shield could have defence, and speed stats
+A neck slot object could have defence, speed, strength, mainhand
+
+The point is to give appropriate attributes to appropriate slot items.
+Why would a shield increase your strength?
+why would iron armour increase your attack?
+It makes sense to omit certain stats from certain items.
+
+for a playable demo to ensure the combat flows properly, ill ensure the methods exist to fully incorporate equipment into combat. Later on I will come back and make better sense of the stats per item.
